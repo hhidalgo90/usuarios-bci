@@ -4,14 +4,16 @@ import com.prueba.usuarios.model.dao.ITelefonoDao;
 import com.prueba.usuarios.model.dao.IUsuarioDao;
 import com.prueba.usuarios.model.entity.Usuario;
 import com.prueba.usuarios.service.IUsuarioService;
-import com.prueba.usuarios.util.PasswordUtil;
 import com.prueba.usuarios.util.UsuarioUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +27,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
     private ITelefonoDao telefonoDao;
 
     Map<String, Object> mensaje = null;
+
+    @Value("${usuario.pass.regx}")
+    private String regexPassword;
 
     @Override
     public Usuario save(Usuario usuario) {
@@ -51,12 +56,21 @@ public class UsuarioServiceImpl implements IUsuarioService {
                 usuario.setMensaje(mensaje);
                 respuesta = false;
             }
-            if (!PasswordUtil.validarPassword(usuario.getPassword())) {
+            if (!validarPassword(usuario.getPassword())) {
                 mensaje = new HashMap<>();
                 mensaje.put("mensaje", "Password debe tener al menos una mayuscula, letras minusculas y dos numeros");
                 usuario.setMensaje(mensaje);
                 respuesta =  false;
             }
             return respuesta;
+    }
+
+    private boolean validarPassword(String password) {
+        Pattern regex = Pattern.compile(regexPassword);
+        Matcher matcher = regex.matcher(password);
+        if(matcher.matches()){
+            return true;
+        }
+        return false;
     }
 }

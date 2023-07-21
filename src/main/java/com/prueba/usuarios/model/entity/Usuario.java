@@ -39,7 +39,7 @@ public class Usuario implements Serializable {
     private String name;
 
     @NotBlank(message = "Password no puede estar vacio")
-    @Size(min = 4, max = 60, message = " El largo debe ser entre 4 y 60 caracteres")
+    @Size(min = 4, max = 60, message = "Password: El largo debe ser entre 4 y 60 caracteres")
     @Column(length = 60)
     private String password;
 
