@@ -38,6 +38,8 @@ El servicio respondera con el token de acceso que se debe usar para acceder a la
 
 Ejemplo: "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZvX2FkaWNpb25hbCI6IkJpZW52ZW5pZG86IGFkbWluIiwidXNlcl9uYW1lIjoiYWRtaW4iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiYXBlbGxpZG8iOiJFc3Bpbm96YSIsImV4cCI6MTY4OTk2ODM1Nywibm9tYnJlIjoiQW5kcmVzIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJqdGkiOiIxMmYzZjExOS1lNDk2LTQ0MWYtYmI1Yy1kOWNkNTFiOGNlNjMiLCJlbWFpbCI6Inp6enp6ekBob3RtYWlsLmVzIiwiY2xpZW50X2lkIjoiY2xpZW50ZXMtYmNpLWFwcCJ9.rmQB93Im6IRpisV7PodVVJ9YpvvwLTsHXQBFju9aKXY"
 
+Para ver lo que contiene el token pueden ir al sitio : https://jwt.io/
+
 # 3 Consumir la API
 
 3.1 Mediante postman dirigase al recurso *saveUsuario* del tipo POST.
