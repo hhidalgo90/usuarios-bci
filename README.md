@@ -19,12 +19,12 @@ Ejecutar el siguiente comando de Maven: mvn spring-boot:run
 
 La aplicacion se ejecutará en el puerto 8080, por lo que la url sera localhost:8080
 
-#1 Probar la aplicación
+# 1 Probar la aplicación
 1.1 En el directorio /Diagramas se encuentra la coleccion de postman para realizar las pruebas.
 1.2 Importar desde Postman la coleccion usuarios.postman_collection.json generada para probar el proyecto.
 
 
-#2 Autenticación
+# 2 Autenticación
 2.1 Esta aplicacion tiene implementado JWT, por lo que el usuario debe loguarse para obtener su token de acceso y asi acceder a los recursos de la API.
 
 2.2 Una vez importada la coleccion en Postman acceder al recurso Loguear del tipo POST http://localhost:8080/oauth/token
@@ -38,7 +38,7 @@ El servicio respondera con el token de acceso que se debe usar para acceder a la
 
 Ejemplo: "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZvX2FkaWNpb25hbCI6IkJpZW52ZW5pZG86IGFkbWluIiwidXNlcl9uYW1lIjoiYWRtaW4iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiYXBlbGxpZG8iOiJFc3Bpbm96YSIsImV4cCI6MTY4OTk2ODM1Nywibm9tYnJlIjoiQW5kcmVzIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJqdGkiOiIxMmYzZjExOS1lNDk2LTQ0MWYtYmI1Yy1kOWNkNTFiOGNlNjMiLCJlbWFpbCI6Inp6enp6ekBob3RtYWlsLmVzIiwiY2xpZW50X2lkIjoiY2xpZW50ZXMtYmNpLWFwcCJ9.rmQB93Im6IRpisV7PodVVJ9YpvvwLTsHXQBFju9aKXY"
 
-#3 Consumir la API
+# 3 Consumir la API
 
 3.1 Mediante postman dirigase al recurso *saveUsuario* del tipo POST.
 3.2 En la pestana Authorization seleccione type Bearer Token y pegue el access_token generado.
