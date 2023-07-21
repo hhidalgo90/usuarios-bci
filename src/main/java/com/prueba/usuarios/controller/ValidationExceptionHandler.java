@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Clase encargada de validar que RequestBody venga completo.
+ */
 @ControllerAdvice
 public class ValidationExceptionHandler {
 
