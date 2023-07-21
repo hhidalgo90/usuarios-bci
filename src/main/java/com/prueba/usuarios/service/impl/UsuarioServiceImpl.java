@@ -27,11 +27,6 @@ public class UsuarioServiceImpl implements IUsuarioService {
     Map<String, Object> mensaje = null;
 
     @Override
-    public List<Usuario> findAll() {
-        return (List<Usuario>) usuarioDao.findAll();
-    }
-
-    @Override
     public Usuario save(Usuario usuario) {
         if(!validarPrerequisitos(usuario)){
             usuario.setTieneErrores(true);
@@ -44,8 +39,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
         return usuario;
     }
 
-    @Override
-    public Usuario findByEmail(String email) {
+    private Usuario findByEmail(String email) {
         return usuarioDao.findByemail(email);
     }
 

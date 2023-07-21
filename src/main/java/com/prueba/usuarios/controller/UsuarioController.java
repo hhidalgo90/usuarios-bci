@@ -2,6 +2,10 @@ package com.prueba.usuarios.controller;
 
 import com.prueba.usuarios.model.entity.Usuario;
 import com.prueba.usuarios.service.IUsuarioService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,10 +17,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
+@Tag(name = "API Usuarios")
 @Slf4j
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -25,12 +29,11 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService usuarioService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE )
-    @ResponseStatus(HttpStatus.OK)
-    public List<Usuario> findAll(){
-        return usuarioService.findAll();
-    }
-
+    @Operation(summary = "Crea un objeto del tipo Usuario", description = "Retorna el objeto creado.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Usuario creado"),
+            @ApiResponse(responseCode = "404", description = "Bad Request - Se requiere modificar el request para consumir el servicio.")
+    })
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE )
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> guardar(@Valid @RequestBody Usuario usuario) {

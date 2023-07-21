@@ -43,20 +43,6 @@ public class UsuarioControllerTest {
     Usuario usuario3 = new Usuario(UUID.randomUUID(), "Erika Espinoza", "Hector123", "h.hidalgo1990@gmail.com", telefonos.stream().collect(Collectors.toSet()), true, LocalDate.now(), LocalDate.now(), LocalDate.now(), "43565423423423", true, respuesta);
 
     @Test
-    public void getAllRecords_success() throws Exception {
-        List<Usuario> records = new ArrayList<>(Arrays.asList(usuario1, usuario2, usuario3));
-
-        Mockito.when(usuarioService.findAll()).thenReturn(records);
-
-        mockMvc.perform(MockMvcRequestBuilders
-                        .get("/usuarios")
-                        .contentType(MediaType.APPLICATION_JSON))
-                        .andExpect(status().isOk())
-                        .andExpect(jsonPath("$", hasSize(3)))
-                        .andExpect(jsonPath("$[2].name", is("Erika Espinoza")));
-    }
-
-    @Test
     public void createUsuarioSuccess() throws Exception {
         Usuario record = usuario2;
 

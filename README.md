@@ -33,3 +33,9 @@ curl -d "@data.json" -H "Content-Type: application/json" -X POST http://localhos
 Importar desde postman la coleccion usuarios.postman_collection.json generada para probar el proyecto.
 
 En el directorio /Diagramas se encuentra la coleccion de postman para realizar las pruebas.
+
+# Swagger!
+
+Para ver documentacion del proyecto mediante Swagger ir a la siguiente URL.
+
+http://localhost:8080/swagger-ui/#/usuario-controller
