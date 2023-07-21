@@ -1,0 +1,17 @@
+{
+    "name": "Juan Rodriguez",
+    "email": "prueba@bci.cl",
+    "password": "Hector22",
+    "phones": [
+        {
+            "number": "1234567",
+            "citycode": "1",
+            "countrycode": "99"
+        },
+        {
+            "number": "962234900",
+            "citycode": "5",
+            "countrycode": "98"
+        }
+    ]
+}
