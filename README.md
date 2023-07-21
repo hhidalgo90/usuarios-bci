@@ -2,13 +2,13 @@
 Los mensajes del tipo {"mensaje": "mensaje de error"} fueron aplicados al metodo Post para guardar usuario, ya que eso es lo que estaba indicado en el documento.
 
 
-#Comencemos!
+# Comencemos!
 
 Pasos para ejecutar el proyecto.
 
 1. Clonar el repositorio en un directorio local.
 
-git clone Https://nombrerepo.git
+git clone https://github.com/hhidalgo90/usuarios-bci.git
 
 2. Ingresar al directorio usuarios-bci
 
