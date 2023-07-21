@@ -66,7 +66,7 @@ public class Usuario implements Serializable {
     @Column(name = "last_login")
     private LocalDate last_login;
 
-    @Column(name = "token")
+    @Column(name = "token", length = 1000)
     private String token;
 
     @JsonIgnore

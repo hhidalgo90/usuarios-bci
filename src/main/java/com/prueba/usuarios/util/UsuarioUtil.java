@@ -12,6 +12,6 @@ public class UsuarioUtil {
         usuario.setModified(LocalDate.now());
         usuario.setLast_login(LocalDate.now());
         usuario.setIsActive(true);
-        usuario.setToken(UUID.randomUUID().toString());
+        //usuario.setToken(UUID.randomUUID().toString());
     }
 }

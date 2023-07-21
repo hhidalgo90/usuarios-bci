@@ -10,9 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -34,9 +36,12 @@ public class UsuarioController {
             @ApiResponse(responseCode = "201", description = "Usuario creado"),
             @ApiResponse(responseCode = "404", description = "Bad Request - Se requiere modificar el request para consumir el servicio.")
     })
+    @Secured({"ROLE_ADMIN"})
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE )
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> guardar(@Valid @RequestBody Usuario usuario) {
+    public ResponseEntity<?> guardar(@Valid @RequestBody Usuario usuario, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        logger.info("[UsuarioController] [guardar] Token: " + token);
+        usuario.setToken(token.substring(7, token.length()));
         Map<String, Object> respuesta = new HashMap<>();
         Usuario nuevoUsuario = usuarioService.save(usuario);
 
